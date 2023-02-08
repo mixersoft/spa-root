@@ -2,6 +2,8 @@
   "imports": {
     "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
     "@ml/root-config": "http://localhost:9000/ml-root-config.js",
+    "@ml/navbar":"http://localhost:9001/index.js",
+    "@ml/shared":"http://localhost:9002/index.js",
     "@ml/page":"http://localhost:9010/main.js"
   }
 }

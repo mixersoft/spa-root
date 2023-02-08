@@ -18,10 +18,16 @@
   -->
 
   <main>
+    <nav>
+      <application name="@ml/navbar"></application>
+    </nav>
     <route default>
       <application name="@single-spa/welcome"></application>
     </route>
     <route path="page">
+      <application name="@ml/page"></application>
+    </route>
+    <route path="marais">
       <application name="@ml/page"></application>
     </route>
   </main>
