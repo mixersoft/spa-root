@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
+    "@ml/root-config": "http://localhost:9000/ml-root-config.js",
+    "@ml/page":"http://localhost:9010/main.js"
+  }
+}
