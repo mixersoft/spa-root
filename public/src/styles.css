@@ -1,0 +1,40 @@
+/* ****************************** for flex layout ****************************** */
+html, body {
+  margin: 0;
+  height: 100vh; /* can also use viewport units (height: 100vh) */
+}
+
+.flex-container {
+  display: flex; /* displays flex-items (children) inline */
+  flex-direction: column; /* stacks them vertically */
+  height: 100%; /* needs to take the parents height, alternative: body {display: flex} */
+}
+
+.flex-block {
+  display: flex;
+  flex-direction: column;
+  overflow: auto; /* recommended */
+  order: 5;
+
+}
+
+.flex-fill-y {
+  display: inherit;
+  flex: 1; /* takes the remaining height of the "container" div */
+  overflow: auto; /* to scroll just the "main" div */
+  /* background: lightgreen; */
+  order: 8;
+}
+
+.flex-fill-y .scroll-y {
+  min-height:100%;
+}
+
+.flex-top, .flex-block.top {
+  overflow: inherit;
+  order: 1;
+}
+
+.flex-bottom, .flex-block.bottom {
+  order: 10;
+}

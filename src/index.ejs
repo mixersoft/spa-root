@@ -17,7 +17,7 @@
     This CSP allows any SSL-enabled host and for arbitrary eval(), but you should limit these directives further to increase your app's security.
     Learn more about CSP policies at https://content-security-policy.com/#directive
   -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https: localhost:*; object-src 'none';">
   <meta name="importmap-type" content="systemjs-importmap" />
   <!-- If you wish to turn off import-map-overrides for specific environments (prod), uncomment the line below -->
   <!-- More info at https://github.com/joeldenning/import-map-overrides/blob/master/docs/configuration.md#domain-list -->
@@ -34,7 +34,14 @@
   <script type="systemjs-importmap">
     {
       "imports": {
-        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js"
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+        "velocity": "https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.js",
+        "twitter": "https://platform.twitter.com/widgets.js",
+        "ha-lite": "https://cdn.jsdelivr.net/gh/hyperaudio/hyperaudio-lite/js/hyperaudio-lite.js",
+        "ha-lite-ext": "https://cdn.jsdelivr.net/gh/hyperaudio/hyperaudio-lite/js/hyperaudio-lite-extension.js",
+        "share-this": "https://cdn.jsdelivr.net/gh/hyperaudio/hyperaudio-lite/js/share-this.js",
+        "share-this-twitter": "https://cdn.jsdelivr.net/gh/hyperaudio/hyperaudio-lite/js/share-this-twitter.js",
+        "share-this-clipboard": "https://cdn.jsdelivr.net/gh/hyperaudio/hyperaudio-lite/js/share-this-clipboard.js"
       }
     }
   </script>
@@ -51,6 +58,7 @@
         "@ml/root-config": "//localhost:9000/ml-root-config.js",
         "@ml/navbar":"//localhost:9001/index.js",
         "@ml/shared":"//localhost:9002/index.js",
+        "@ml/marais": "//localhost:9011/main.js",
         "@ml/app": "//localhost:9010/main.js"
       }
     }
@@ -71,14 +79,24 @@
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
   <% } %>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hyperaudio/hyperaudio-lite/css/hyperaudio-lite-player.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hyperaudio/hyperaudio-lite/css/share-this.css">
+  <link rel="stylesheet" href="http://localhost:9000/src/styles.css">
 
 </head>
-<body>
+<body class="flex-container">
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
   <script>
     System.import('@ml/root-config');
+    System.import('velocity');
+    // System.import('twitter');
+    System.import("ha-lite");
+    System.import("ha-lite-ext");
+    // System.import("share-this");
+    // System.import("share-this-twitter");
+    // System.import("share-this-clipboard");    
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>
