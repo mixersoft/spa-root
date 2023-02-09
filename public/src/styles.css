@@ -1,37 +1,49 @@
 /* ****************************** for flex layout ****************************** */
 html, body {
   margin: 0;
-  height: 100vh; /* can also use viewport units (height: 100vh) */
+  height: 100vh !important; /* can also use viewport units (height: 100vh) */
+}
+
+main {
+  /* padding: 8px 0 8px 8px; */
+  padding: 8px;
 }
 
 .flex-container {
   display: flex; /* displays flex-items (children) inline */
   flex-direction: column; /* stacks them vertically */
-  height: 100%; /* needs to take the parents height, alternative: body {display: flex} */
+  /* needs to take the parents height, alternative: body {display: flex} */
+  max-height: 100%; 
 }
 
 .flex-block {
-  display: flex;
-  flex-direction: column;
-  overflow: auto; /* recommended */
+  /* display: flex; */
+  flex: 0 0 0;
+  /* flex-direction: column; */
+  /* overflow: auto;  */
+  /* recommended */
   order: 5;
+}
 
+.fill-parent {
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
 }
 
 .flex-fill-y {
-  display: inherit;
-  flex: 1; /* takes the remaining height of the "container" div */
-  overflow: auto; /* to scroll just the "main" div */
-  /* background: lightgreen; */
+  /* display: inherit; */
+  flex: 1 1 auto; /* takes the remaining height of the "container" div */
+  overflow-y: hidden;
   order: 8;
 }
-
-.flex-fill-y .scroll-y {
-  min-height:100%;
+.flex-fill-y.scroll {
+  overflow-y: auto; /* to scroll just the "main" div */
 }
 
+
 .flex-top, .flex-block.top {
-  overflow: inherit;
+  /* overflow: inherit; */
   order: 1;
 }
 
